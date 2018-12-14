@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node src/servWeb/web.js",
-    "dev": "nodemon src/servWeb/web.js"
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
