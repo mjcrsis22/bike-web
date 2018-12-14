@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Bicicletas Web | API</title>
+	<!-- BOOTSTRAP 4 CDN -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<nav class="navbar navbar-dark bg-dark mb-4">
+		<a href="/" class="navbar-brand">Bicicletas Web</a>
+	</nav>
+
+	<div class="container">
+		<h1 class="mb-4">Información del API</h1>
+
+		<table class="table">
+			<tr>
+				<th width="10%">Protocolo</th>
+				<th width="">Ruta</th>
+				<th width="">Parametros</th>
+				<th width="30%">Descripción</th>
+			</tr>
+			<tr>
+				<td><span class="text-muted">GET</span></td>
+				<td><span class="text-primary">/api/bikes/</span></td>
+				<td><span>-</span></td>
+				<td><span>Listar todas las bicicletas</span></td>
+			</tr>
+			<tr>
+				<td><span class="text-muted">GET</span></td>
+				<td><span class="text-primary">/api/bikes/get/</span><span class="text-danger">:id</span></td>
+				<td><span class="text-danger">:id</span></td>
+				<td><span>Obtener una bicicleta por su ID</span></td>
+			</tr>
+			<tr>
+				<td><span class="text-muted">POST</span></td>
+				<td><span class="text-primary">/api/bikes/add</span></td>
+				<td><span>{ nombre: { type: String, required: true }, modelo: { type: String, required: true }, color: { type: String, required: true }, rodado: { type: String, required: true }, precio: { type: Number, default: 0 } }</span></td>
+				<td><span>Añadir una nueva bicicleta</span></td>
+			</tr>
+			<tr>
+				<td><span class="text-muted">PUT</span></td>
+				<td><span class="text-primary">/api/bikes/edit</span></td>
+				<td><span>{ nombre: { type: String, required: true }, modelo: { type: String, required: true }, color: { type: String, required: true }, rodado: { type: String, required: true }, precio: { type: Number, default: 0 }, <span class="text-danger">id: { type: String, required: true }</span> }</span></td>
+				<td><span>Editar una bicicleta por su ID</span></td>
+			</tr>
+			<tr>
+				<td><span class="text-muted">DELETE</span></td>
+				<td><span class="text-primary">/api/bikes/delete/</span><span class="text-danger">:id</span></td>
+				<td><span class="text-danger">:id</span></td>
+				<td><span>Eliminar una bicicleta por su ID</span></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
