@@ -23,6 +23,5 @@ app.use(express.urlencoded({extended: false}));
 
 // start the service
 app.listen(app.get('port'), () => {
-	console.log(`REDIS_URL ${process.env.REDIS_URL}`);
 	console.log(`Bike is on ${app.get('port')}`);
 });
