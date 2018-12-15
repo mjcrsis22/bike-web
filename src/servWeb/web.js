@@ -4,6 +4,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const cors = require('cors')
 
 // import routes
 const apiRoute = require('./routes/api');
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 // middlewares
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cors());
 
 // routes
 app.use('/api', apiRoute);

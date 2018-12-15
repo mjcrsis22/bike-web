@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
 		const request = { type: 'bikesList' };
 
 		reqtrBikeFn(request, (response) => {
-			res.send(response);
+			res.json(response);
 		});
 	});
 
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 		};
 
 		reqtrBikeFn(request, (response) => {
-			res.send(response);
+			res.json(response);
 		});
 	});
 
@@ -49,7 +49,7 @@ router.get('/', (req, res) => {
 		};
 
 		reqtrBikeFn(request, (response) => {
-			res.send(response);
+			res.json(response);
 		});
 	});
 
@@ -61,7 +61,7 @@ router.get('/', (req, res) => {
 		};
 
 		reqtrBikeFn(request, (response) => {
-			res.send(response);
+			res.json(response);
 		});
 	});
 
@@ -72,7 +72,7 @@ router.get('/', (req, res) => {
 		};
 
 		reqtrBikeFn(request, (response) => {
-			res.send(response);
+			res.json(response);
 		});
 	});
 
