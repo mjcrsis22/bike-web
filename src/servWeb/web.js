@@ -24,5 +24,6 @@ app.use('/', indexRoute);
 
 // start the service
 app.listen(app.get('port'), () => {
+	console.log(`REDIS_URL ${process.env.REDIS_URL}`);
 	console.log(`Web is on ${app.get('port')}`);
 });
