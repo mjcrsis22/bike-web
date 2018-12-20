@@ -28,7 +28,7 @@ const _fn_bikes = require('../../servBike/functions/bike');
 
 	router.get('/bikes/get/:id', (req, res) => {
 
-		var param = req.params.id;
+		var param = { id: req.params.id };
 
 		_fn_bikes.bikesGet(param, (scope, response) => {
 			res.json(response);
@@ -37,7 +37,7 @@ const _fn_bikes = require('../../servBike/functions/bike');
 
 	router.post('/bikes/add', (req, res) => {
 
-		var param = req.body;
+		var param = { body: req.body };
 
 		_fn_bikes.bikesAdd(param, (scope, response) => {
 			res.json(response);
@@ -46,7 +46,7 @@ const _fn_bikes = require('../../servBike/functions/bike');
 
 	router.put('/bikes/edit', (req, res) => {
 
-		var param = req.body;
+		var param = { body: req.body };
 
 		_fn_bikes.bikesEdit(param, (scope, response) => {
 			res.json(response);
@@ -55,7 +55,7 @@ const _fn_bikes = require('../../servBike/functions/bike');
 
 	router.delete('/bikes/delete/:id', (req, res) => {
 
-		var param = req.params.id;
+		var param = { id: req.params.id };
 
 		_fn_bikes.bikesDelete(param, (scope, response) => {
 			res.json(response);
