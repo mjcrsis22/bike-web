@@ -1,77 +1,63 @@
 const express = require('express');
 const router = express.Router();
-const cote = require('cote');
+const mongoose = require('mongoose');
+
+// connect to db
+mongoose.connect(
+        process.env.BIKEDBLINK,
+        { useNewUrlParser: true }
+    )
+    .then(db => console.log('db is connected'))
+    .catch(err => console.log(err));
 
 router.get('/', (req, res) => {
 	res.render('api');
 });
 
+const _fn_bikes = require('../../servBike/functions/bike');
+
 // bikes
-	const reqtrBike = new cote.Requester({ name: 'bikes serv requester' });
-
-	const reqtrBikeFn = async (request, callback) => {
-		try {
-			const response = await reqtrBike.send(request);
-			callback.call(request, { status: 'ok', body: response });
-
-		} catch (err) {
-			console.log('servBikeError', err);
-			callback.call(request, { status: 'error', body: 'Error al intentar conectarse al servicio de bicicletas' });
-		}
-	};
-
 	router.get('/bikes', (req, res) => {
 
-		const request = { type: 'bikesList' };
+		var param = null;
 
-		reqtrBikeFn(request, (response) => {
+		_fn_bikes.bikesList(param, (scope, response) => {
 			res.json(response);
 		});
 	});
 
 	router.get('/bikes/get/:id', (req, res) => {
 
-		const request = {
-			type: 'bikesGet',
-			id: req.params.id
-		};
+		var param = req.params.id;
 
-		reqtrBikeFn(request, (response) => {
+		_fn_bikes.bikesGet(param, (scope, response) => {
 			res.json(response);
 		});
 	});
 
 	router.post('/bikes/add', (req, res) => {
 
-		const request = {
-			type: 'bikesAdd',
-			body: req.body
-		};
+		var param = req.body;
 
-		reqtrBikeFn(request, (response) => {
+		_fn_bikes.bikesAdd(param, (scope, response) => {
 			res.json(response);
 		});
 	});
 
 	router.put('/bikes/edit', (req, res) => {
 
-		const request = {
-			type: 'bikesEdit',
-			body: req.body
-		};
+		var param = req.body;
 
-		reqtrBikeFn(request, (response) => {
+		_fn_bikes.bikesEdit(param, (scope, response) => {
 			res.json(response);
 		});
 	});
 
 	router.delete('/bikes/delete/:id', (req, res) => {
-		const request = {
-			type: 'bikesDelete',
-			id: req.params.id
-		};
 
-		reqtrBikeFn(request, (response) => {
+		var param = req.params.id;
+
+		_fn_bikes.bikesDelete(param, (scope, response) => {
 			res.json(response);
 		});
 	});
