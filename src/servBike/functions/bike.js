@@ -5,7 +5,7 @@ const _fn_bikes = {
         console.log(`bikesList request`);
         try {
             var bikes = await Bike.find();
-            cb(null, { status: '', body: bikes});
+            cb(null, { status: 'success', body: bikes});
 
         } catch (err) {
             console.log('dbErrorForList', err);
@@ -16,7 +16,7 @@ const _fn_bikes = {
     bikesGet: async (req, cb) => {
         try {
             var bike = await Bike.findById(req.id);
-            cb(null, { status: '', body: bike});
+            cb(null, { status: 'success', body: bike});
 
         } catch (err) {
             console.log('dbErrorForGet', err);
@@ -28,7 +28,7 @@ const _fn_bikes = {
         try {
             var bike = new Bike(req.body);
             var newDoc = await bike.save();
-            cb(null, { status: '', body: newDoc});
+            cb(null, { status: 'success', body: newDoc});
 
         } catch (err) {
             console.log('dbErrorForAdd', err);
@@ -39,7 +39,7 @@ const _fn_bikes = {
     bikesEdit: async (req, cb) => {
         try {
             await Bike.update({ _id: req.body.id }, req.body);
-            cb(null, { status: '', body: 'Bicicleta Editada'});
+            cb(null, { status: 'success', body: 'Bicicleta Editada'});
 
         } catch (err) {
             console.log('dbErrorForEdit', err);
@@ -50,7 +50,7 @@ const _fn_bikes = {
     bikesDelete: async (req, cb) => {
         try {
             await Bike.deleteOne({ _id: req.id });
-            cb(null, { status: '', body: 'Bicicleta Eliminada'});
+            cb(null, { status: 'success', body: 'Bicicleta Eliminada'});
 
         } catch (err) {
             console.log('dbErrorForDelete', err);
